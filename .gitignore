@@ -1,0 +1,6 @@
+#==FreeCAD==
+*.FCBak
+
+#==MacOS==
+.DS_Store
+
