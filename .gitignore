@@ -1,6 +1,30 @@
 #==FreeCAD==
 *.FCBak
 
-#==MacOS==
-.DS_Store
+#==Software==
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+dist/
+build/
+*.egg-info/
+*.egg
 
+#==System==
+.DS_Store
+Thumbs.db
+
+#==IDE==
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+#==Logs==
+*.log
+logs/
