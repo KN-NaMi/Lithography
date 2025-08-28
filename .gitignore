@@ -11,6 +11,8 @@ __pycache__/
 .Python
 dist/
 build/
+node_modules/
+out/
 *.egg-info/
 *.egg
 
@@ -28,3 +30,4 @@ Thumbs.db
 #==Logs==
 *.log
 logs/
+
