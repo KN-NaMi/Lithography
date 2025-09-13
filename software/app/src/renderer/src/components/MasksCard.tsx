@@ -1,11 +1,11 @@
 import { Button, Card } from 'antd'
 
-function CameraCard(): React.JSX.Element {
+function MasksCard(): React.JSX.Element {
   return (
     <Card size="small" style={{ height: '100%' }}>
-      <Button type="primary">Camera</Button>
+      <Button type="primary">Masks</Button>
     </Card>
   )
 }
 
-export default CameraCard
+export default MasksCard
