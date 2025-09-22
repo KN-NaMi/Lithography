@@ -1,4 +1,4 @@
-# lithography-gui
+# gui
 
 An Electron application with React and TypeScript
 

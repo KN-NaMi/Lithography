@@ -1,5 +1,6 @@
 {
-   "include": [
+  "extends": "@electron-toolkit/tsconfig/tsconfig.web.json",
+  "include": [
     "src/renderer/src/env.d.ts",
     "src/renderer/src/**/*",
     "src/renderer/src/**/*.tsx",
@@ -7,10 +8,6 @@
   ],
   "compilerOptions": {
     "composite": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
