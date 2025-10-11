@@ -12,7 +12,6 @@
     "types": [
       "electron-vite/node"
     ],
-    "baseUrl": ".",
     "moduleResolution": "bundler"
   }
 }

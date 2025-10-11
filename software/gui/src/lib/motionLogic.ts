@@ -1,5 +1,6 @@
 // src/lib/motionLogic.ts
 
+
 export interface DeviceResponse {
     addr: string
     data: string
@@ -8,8 +9,10 @@ export interface DeviceResponse {
 const tcpPort = 6000
 
 export async function fetchDevices(): Promise<DeviceResponse[]> {
-    // @ts-ignore
-    const devices = await window.electronAPI.discoverDevices()
+
+    const devices = await window.api.discoverDevices()
+
+    // Ta część jest OK
     return devices.filter((device) => {
         try {
             const parsed = JSON.parse(device.data)
@@ -26,8 +29,8 @@ export async function startSession(
     purpose = 'lithography'
 ): Promise<string> {
     const initMsg = { cmd: 'INIT', client, purpose }
-    // @ts-ignore
-    const resp = await window.electronAPI.sendTcpCommand(
+    // Poprawka: Używamy 'window.api'.
+    const resp = await window.api.sendTcpCommand(
         ip,
         tcpPort,
         JSON.stringify(initMsg)
@@ -40,22 +43,12 @@ export async function startSession(
     }
 }
 
+// Ta funkcja jest w porządku, bo nie używa IPC.
 export async function sendUserCommand(
     ip: string,
     sessionId: string,
     command: string
 ): Promise<any> {
-    const res = await fetch(`http://${ip}:8000/gcode`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'session-id': sessionId
-        },
-        body: JSON.stringify({ command })
-    })
-    if (!res.ok) {
-        const errorData = await res.json()
-        throw new Error(`HTTP error ${res.status}: ${errorData.detail || JSON.stringify(errorData)}`)
-    }
-    return await res.json()
+    // Zamiast fetch, używamy teraz naszego nowego, bezpiecznego mostu IPC
+    return await window.api.sendGcodeCommand(ip, sessionId, command);
 }

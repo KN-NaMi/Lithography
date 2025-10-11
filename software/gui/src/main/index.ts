@@ -1,3 +1,4 @@
+//drugi
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
@@ -10,12 +11,16 @@ app.disableHardwareAcceleration()
 
 let port: SerialPort | null = null;
 let mainWindow: BrowserWindow;
+let resizing = false;
 
 function createWindow(): void {
-  // Create the browser window.
+  const width = 1920;
+  const height = 1080;
   mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
+    width,
+    height,
+    minWidth: 1280,
+    minHeight: 720,
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
@@ -30,13 +35,30 @@ function createWindow(): void {
     mainWindow.show()
   })
 
+  mainWindow.on("will-resize", (event, newBounds) => {
+    if (resizing) return;
+    resizing = true;
+    event.preventDefault();
+    let { width: width2, height: height2 } = newBounds;
+    let expectedHeight = Math.round(width2 * 9 / 16);
+    let expectedWidth = Math.round(height2 * 16 / 9);
+    if (Math.abs(height2 - expectedHeight) > Math.abs(width2 - expectedWidth)) {
+      if (mainWindow) { // Sprawdzenie null
+        mainWindow.setSize(expectedWidth, height2);
+      }
+    } else {
+      if (mainWindow) { // Sprawdzenie null
+        mainWindow.setSize(width2, expectedHeight);
+      }
+    }
+    resizing = false;
+  });
+
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
     return { action: 'deny' }
   })
 
-  // HMR for renderer base on electron-vite cli.
-  // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
   } else {
@@ -44,9 +66,7 @@ function createWindow(): void {
   }
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+
 app.whenReady().then(() => {
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.electron')
@@ -159,6 +179,32 @@ ipcMain.handle('discover-devices', async () => {
 
 ipcMain.handle('send-tcp-command', async (_event, ip: string, port: number, command: string) => {
   return await sendTcpCommand(ip, port, command);
+});
+
+ipcMain.handle('send-gcode-command', async (_event, ip, sessionId, command) => {
+  try {
+    const res = await fetch(`http://${ip}:8000/gcode`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'session-id': sessionId,
+      },
+      body: JSON.stringify({ command }),
+    });
+
+    if (!res.ok) {
+      const errorData = await res.json();
+      // Rzucamy błąd, który zostanie przekazany z powrotem do frontendu
+      throw new Error(`HTTP error ${res.status}: ${JSON.stringify(errorData)}`);
+    }
+
+    // Zwracamy odpowiedź z serwera do frontendu
+    return await res.json();
+  } catch (error: any) {
+    console.error('Błąd w handlerze send-gcode-command:', error);
+    // Przekazujemy błąd dalej, aby frontend mógł go obsłużyć
+    throw error;
+  }
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common

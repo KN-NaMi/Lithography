@@ -1,6 +1,7 @@
 import { Card, CardContent } from '@renderer/components/ui/card'
 import CameraCard from './camera-card'
 import MotionCard from './motion-card'
+import MasksCard from './masks-card'
 
 function DashboardPage(): React.JSX.Element {
   return (
@@ -22,13 +23,13 @@ function DashboardPage(): React.JSX.Element {
 
         <Card>
           <CardContent>
-            <div className="text-gray-300">Mask content</div>
+            <MasksCard />
           </CardContent>
         </Card>
 
         <Card>
           <CardContent>
-            <div className="text-gray-300">Projector content</div>
+
           </CardContent>
         </Card>
       </div>
