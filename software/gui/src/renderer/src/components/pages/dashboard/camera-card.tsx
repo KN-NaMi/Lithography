@@ -1,5 +1,5 @@
 function CameraCard(): React.JSX.Element {
-  return <>Camera Card</>
+  return <>Content</>
 }
 
 export default CameraCard

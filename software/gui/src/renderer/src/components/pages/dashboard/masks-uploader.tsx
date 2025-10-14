@@ -7,6 +7,7 @@ import type { Mask } from '../../../../../lib/imageProcesor';
 
 interface MaskUploaderProps {
     onMasksAdded: (newMasks: Mask[]) => void;
+
 }
 
 function MaskUploader({ onMasksAdded }: MaskUploaderProps): React.JSX.Element {
@@ -39,7 +40,7 @@ function MaskUploader({ onMasksAdded }: MaskUploaderProps): React.JSX.Element {
 
     return (
         <>
-            <button onClick={triggerFileInput} className="flex cursor-pointer border-none bg-transparent">
+            <button onClick={triggerFileInput} className="flex cursor-pointer border-none bg-transparent ">
                 <Upload color="#272729" />
             </button>
             <input

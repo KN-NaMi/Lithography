@@ -34,7 +34,7 @@ function MasksCard(): React.JSX.Element {
     return (
         <div className="w-full h-full flex flex-col items-center justify-center relative">
             {/* Umieszczam Uploader na górze dla przejrzystości */}
-            <div className="absolute top-4 right-4 z-20">
+            <div className="absolute top-4 right-4 z-5">
                 <MaskUploader onMasksAdded={handleMasksAdded} />
             </div>
 
