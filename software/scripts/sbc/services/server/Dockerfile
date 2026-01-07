@@ -6,6 +6,7 @@ WORKDIR /app
 
 COPY pyproject.toml uv.lock* ./
 COPY . .
+COPY ./files/* ./files/
 
 RUN uv sync --no-dev --frozen
 

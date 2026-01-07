@@ -1,0 +1,123 @@
+[21491:21491:0107/232151.694169:ERROR:chrome_browser_cloud_management_controller.cc(162)] Cloud management controller initialization aborted as CBCM is not enabled.
+[21491:21516:0107/232151.771104:ERROR:object_proxy.cc(623)] Failed to call method: org.freedesktop.DBus.StartServiceByName: object_path= /org/freedesktop/DBus: org.freedesktop.DBus.Error.Spawn.ChildExited: Process org.freedesktop.Notifications exited with status 1
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+[21531:21531:0107/232152.109977:ERROR:angle_platform_impl.cc(43)] Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+ERR: Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+[21531:21531:0107/232152.110242:ERROR:gl_display.cc(504)] EGL Driver message (Critical) eglInitialize: GLX is not present.
+[21531:21531:0107/232152.110356:ERROR:gl_display.cc(793)] eglInitialize OpenGL failed with error EGL_NOT_INITIALIZED, trying next display type
+[21531:21531:0107/232152.111931:ERROR:angle_platform_impl.cc(43)] Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+ERR: Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+[21531:21531:0107/232152.112146:ERROR:gl_display.cc(504)] EGL Driver message (Critical) eglInitialize: GLX is not present.
+[21531:21531:0107/232152.112313:ERROR:gl_display.cc(793)] eglInitialize OpenGLES failed with error EGL_NOT_INITIALIZED
+[21531:21531:0107/232152.112472:ERROR:gl_display.cc(819)] Initialization of all EGL display types failed.
+[21531:21531:0107/232152.112575:ERROR:gl_ozone_egl.cc(26)] GLDisplayEGL::Initialize failed.
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+[21531:21531:0107/232152.247519:ERROR:angle_platform_impl.cc(43)] Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+ERR: Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+[21531:21531:0107/232152.247753:ERROR:gl_display.cc(504)] EGL Driver message (Critical) eglInitialize: GLX is not present.
+[21531:21531:0107/232152.247902:ERROR:gl_display.cc(793)] eglInitialize OpenGL failed with error EGL_NOT_INITIALIZED, trying next display type
+[21531:21531:0107/232152.258479:ERROR:angle_platform_impl.cc(43)] Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+ERR: Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+[21531:21531:0107/232152.258787:ERROR:gl_display.cc(504)] EGL Driver message (Critical) eglInitialize: GLX is not present.
+[21531:21531:0107/232152.258942:ERROR:gl_display.cc(793)] eglInitialize OpenGLES failed with error EGL_NOT_INITIALIZED
+[21531:21531:0107/232152.259079:ERROR:gl_display.cc(819)] Initialization of all EGL display types failed.
+[21531:21531:0107/232152.259202:ERROR:gl_ozone_egl.cc(26)] GLDisplayEGL::Initialize failed.
+[21531:21531:0107/232152.266443:ERROR:viz_main_impl.cc(186)] Exiting GPU process due to errors during initialization
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+[21586:21586:0107/232152.814393:ERROR:angle_platform_impl.cc(43)] Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+ERR: Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+[21586:21586:0107/232152.814622:ERROR:gl_display.cc(504)] EGL Driver message (Critical) eglInitialize: GLX is not present.
+[21586:21586:0107/232152.814814:ERROR:gl_display.cc(793)] eglInitialize OpenGL failed with error EGL_NOT_INITIALIZED, trying next display type
+[21586:21586:0107/232152.816470:ERROR:angle_platform_impl.cc(43)] Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+ERR: Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+[21586:21586:0107/232152.816624:ERROR:gl_display.cc(504)] EGL Driver message (Critical) eglInitialize: GLX is not present.
+[21586:21586:0107/232152.816760:ERROR:gl_display.cc(793)] eglInitialize OpenGLES failed with error EGL_NOT_INITIALIZED
+[21586:21586:0107/232152.816975:ERROR:gl_display.cc(819)] Initialization of all EGL display types failed.
+[21586:21586:0107/232152.817087:ERROR:gl_ozone_egl.cc(26)] GLDisplayEGL::Initialize failed.
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+[21586:21586:0107/232152.863957:ERROR:angle_platform_impl.cc(43)] Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+ERR: Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+[21586:21586:0107/232152.864235:ERROR:gl_display.cc(504)] EGL Driver message (Critical) eglInitialize: GLX is not present.
+[21586:21586:0107/232152.864357:ERROR:gl_display.cc(793)] eglInitialize OpenGL failed with error EGL_NOT_INITIALIZED, trying next display type
+[21586:21586:0107/232152.870324:ERROR:angle_platform_impl.cc(43)] Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+ERR: Display.cpp:1019 (initialize): ANGLE Display::initialize error 12289: GLX is not present.
+[21586:21586:0107/232152.870500:ERROR:gl_display.cc(504)] EGL Driver message (Critical) eglInitialize: GLX is not present.
+[21586:21586:0107/232152.870603:ERROR:gl_display.cc(793)] eglInitialize OpenGLES failed with error EGL_NOT_INITIALIZED
+[21586:21586:0107/232152.870739:ERROR:gl_display.cc(819)] Initialization of all EGL display types failed.
+[21586:21586:0107/232152.870904:ERROR:gl_ozone_egl.cc(26)] GLDisplayEGL::Initialize failed.
+[21586:21586:0107/232152.879282:ERROR:viz_main_impl.cc(186)] Exiting GPU process due to errors during initialization
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+Xlib:  extension "GLX" missing on display "localhost:10.0".
+[21614:21614:0107/232153.098244:ERROR:gpu_memory_buffer_support_x11.cc(49)] dri3 extension not supported.
+[21565:7:0107/232153.104146:ERROR:command_buffer_proxy_impl.cc(128)] ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer.
+[21532:21547:0107/232153.273376:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232153.290631:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232154.264894:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232154.282100:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232156.033615:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232156.049415:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232157.410927:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232157.426502:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232159.362555:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232159.377771:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232202.275133:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232202.291501:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232202.854593:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232202.873409:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+Gtk-Message: 23:22:06.197: GtkDialog mapped without a transient parent. This is discouraged.
+[21532:21547:0107/232214.211577:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232214.226795:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232215.314091:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232215.329709:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232216.721917:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232216.737655:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232217.970399:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232217.985327:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232219.019245:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232219.035070:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232220.579326:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232220.594064:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232222.979497:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232222.995202:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21491:21491:0107/232225.476072:ERROR:CONSOLE(1)] "Uncaught (in promise) Error: The deferred DOM Node could not be resolved to a valid node.", source: devtools://devtools/bundled/panels/elements/elements.js (1)
+[21491:21491:0107/232225.477050:ERROR:CONSOLE(1)] "Uncaught (in promise) Error: The deferred DOM Node could not be resolved to a valid node.", source: devtools://devtools/bundled/panels/elements/elements.js (1)
+[21532:21547:0107/232226.108061:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232226.122557:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232230.261115:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232230.297508:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232233.170067:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232233.185717:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232237.635769:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232237.649693:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232241.434116:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232241.449649:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232245.698864:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232245.713807:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232248.177667:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232248.193523:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232251.801711:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232251.825345:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232256.091278:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232256.105790:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232302.297994:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232302.313453:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232306.747293:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232306.765270:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232312.606400:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232312.633536:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232318.195635:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
+[21532:21547:0107/232318.209965:ERROR:ssl_client_socket_impl.cc(992)] handshake failed; returned -1, SSL error code 1, net_error -107
