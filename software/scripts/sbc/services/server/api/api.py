@@ -5,6 +5,7 @@ from aiortc import RTCPeerConnection, RTCSessionDescription, VideoStreamTrack
 import av
 from aiortc import VideoStreamTrack
 from fractions import Fraction
+import time
 
 app = FastAPI()
 pcs = set()
@@ -42,8 +43,10 @@ async def mask_view():
 
 @app.post("/mask/rcv")
 async def rcv_mask(mask: UploadFile = File(...)):
-    file_path = os.path.join(MASKS_PATH, mask.filename);
+    file_path = os.path.join(MASKS_PATH, mask.filename );
 
+    time_str = f"{time.time()}";
+    file_path = time_str + file_path;
     buffer = open(file_path, "wb");
     shutil.copyfileobj(mask.file, buffer);
     os.symlink(file_path, ACTIVE_MASK_PATH);
