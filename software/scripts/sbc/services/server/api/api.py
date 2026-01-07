@@ -1,18 +1,18 @@
 import asyncio
-from fastapi import FastAPI, Form
-from fastapi.responses import HTMLResponse, JSONResponse
-from aiortc import RTCPeerConnection, RTCSessionDescription, VideoStreamTrack
-import av
-from aiortc import VideoStreamTrack
-from fractions import Fraction
+import os
+import shutil
 import time
+from fastapi import FastAPI, Form, UploadFile, File, WebSocket, WebSocket, WebSocketDisconnect
+from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
+import av
 
 app = FastAPI()
-pcs = set()
 
 RTSP_URL = "rtsp://127.0.0.1:8554/test"
 MASKS_PATH = "/etc/lithography/masks"
 ACTIVE_MASK_PATH = "/etc/lithography/active-mask"
+
+os.makedirs(MASKS_PATH, exist_ok=True)
 
 mask_cid = 0;
 
@@ -34,28 +34,31 @@ async def notify_changes(ws: WebSocket):
             return;
 
 @app.get("/mask/realtime")
-async def mask_view():
+async def mask_realtime():
     return FileResponse(path=ACTIVE_MASK_PATH);
 
 @app.get("/mask/view")
 async def mask_view():
-    return FileResponse(path="maskview.html", media_type="text/html");
+    return FileResponse(path="files/maskview.html", media_type="text/html");
 
 @app.post("/mask/rcv")
 async def rcv_mask(mask: UploadFile = File(...)):
-    file_path = os.path.join(MASKS_PATH, mask.filename );
-
+    global mask_cid;
     time_str = f"{time.time()}";
-    file_path = time_str + file_path;
-    buffer = open(file_path, "wb");
-    shutil.copyfileobj(mask.file, buffer);
+    file_path = time_str + mask.filename;
+    file_path = os.path.join(MASKS_PATH, file_path);
+
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(mask.file, buffer);
+    if os.path.exists(ACTIVE_MASK_PATH):
+        os.unlink(ACTIVE_MASK_PATH);
     os.symlink(file_path, ACTIVE_MASK_PATH);
 
-    ++mask_cid;
+    mask_cid += 1;
 
     return JSONResponse({"status":"ok","filename":mask.filename});
 
 @app.get("/mask/upload")
 async def mask_upload():
-    return FileResponse(path="maskupload.html", media_type="text/html");
+    return FileResponse(path="files/maskupload.html", media_type="text/html");
 
