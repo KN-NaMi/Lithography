@@ -42,7 +42,7 @@ async def mask_view():
 @app.post("/mask/rcv")
 async def rcv_mask(mask: UploadFile = File(...)):
     # no need for magic byte checking, MIME type is enough
-    if mask.content_type nit in MASK_TYPES:
+    if mask.content_type not in MASK_TYPES:
         raise HTTPException(status_code=400, detail="file type not in MASK_TYPES")
 
     mask.file.seek(0, os.SEEK_END)
