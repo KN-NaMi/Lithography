@@ -26,7 +26,8 @@ async def notify_changes(ws: WebSocket):
     await ws.accept()
     try:
         while True:
-            await mask_ch_cond.wait()
+            async with mask_ch_cond:
+                await mask_ch_cond.wait()
 
             await ws.send_text("/mask/view")
     except WebSocketDisconnect:
@@ -62,7 +63,8 @@ async def rcv_mask(mask: UploadFile = File(...)):
         os.unlink(ACTIVE_MASK_PATH)
     os.symlink(file_path, ACTIVE_MASK_PATH)
 
-    mask_ch_cond.notify_all()
+    async with mask_ch_cond:
+        mask_ch_cond.notify_all()
 
     return JSONResponse({"status":"ok","filename":mask.filename})
 
