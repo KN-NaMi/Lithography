@@ -2,6 +2,7 @@
 *.FCBak
 
 #==Software==
+uv.lock
 venv/
 .venv/
 __pycache__/
