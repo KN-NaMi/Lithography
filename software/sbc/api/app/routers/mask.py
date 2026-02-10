@@ -27,10 +27,12 @@ async def mask_changed(ws: WebSocket):
 
 @router.get("")
 async def get_mask():
+    """Endpoint to retrieve the current active mask file."""
     return FileResponse(path=ACTIVE_MASK_PATH)
 
 @router.get("/view")
 async def mask_view():
+    """Endpoint to serve the mask view HTML page."""
     return FileResponse(path="static/maskview.html", media_type="text/html")
 
 @router.post("/upload")
