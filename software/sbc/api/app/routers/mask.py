@@ -6,8 +6,8 @@ from fastapi.responses import FileResponse, JSONResponse
 
 router = APIRouter(prefix="/mask", tags=["mask"])
 
-ACTIVE_MASK_PATH = os.getenv("ACTIVE_MASK_PATH", "/var/lithography/active-mask")
-MASKS_DIR = os.getenv("MASKS_DIR", "/var/lithography/masks")
+ACTIVE_MASK_PATH = os.getenv("ACTIVE_MASK_PATH", ".masks/active-mask")
+MASKS_DIR = os.getenv("MASKS_DIR", ".masks/uploads")
 os.makedirs(MASKS_DIR, exist_ok=True)
 os.makedirs(os.path.dirname(ACTIVE_MASK_PATH), exist_ok=True)
 
@@ -28,6 +28,8 @@ async def mask_changed(ws: WebSocket):
 @router.get("")
 async def get_mask():
     """Endpoint to retrieve the current active mask file."""
+    if not os.path.exists(ACTIVE_MASK_PATH):
+        raise HTTPException(status_code=404, detail="No active mask file found.")
     return FileResponse(path=ACTIVE_MASK_PATH)
 
 @router.get("/view")
@@ -47,13 +49,14 @@ async def upload_mask(mask: UploadFile = File(...)):
         return HTTPException(status_code=400, detail="File size exceeds the 64 MB limit.")
     mask.file.seek(0)
 
-    file_path = os.path.join(MASKS_DIR, f"{mask.filename}_{int(asyncio.get_event_loop().time())}")
+    name, ext = os.path.splitext(mask.filename)
+    file_path = os.path.join(MASKS_DIR, f"{name}_{int(asyncio.get_event_loop().time())}{ext}")
 
     with open(file_path, "wb") as f:
         shutil.copyfileobj(mask.file, f)
-    if os.path.exists(ACTIVE_MASK_PATH):
+    if os.path.lexists(ACTIVE_MASK_PATH):
         os.unlink(ACTIVE_MASK_PATH)
-    os.symlink(file_path, ACTIVE_MASK_PATH)
+    os.symlink(os.path.abspath(file_path), ACTIVE_MASK_PATH)
 
     async with mask_ch_cond:
         mask_ch_cond.notify_all()
