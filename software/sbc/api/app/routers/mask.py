@@ -13,18 +13,6 @@ os.makedirs(os.path.dirname(ACTIVE_MASK_PATH), exist_ok=True)
 
 mask_ch_cond = asyncio.Condition()
 
-@router.websocket("/changed")
-async def mask_changed(ws: WebSocket):
-    """WebSocket endpoint to notify clients when the mask has been changed."""
-    await ws.accept()
-    try:
-        async with mask_ch_cond:
-            while True:
-                await mask_ch_cond.wait()
-                await ws.send_text("Mask has been changed.")
-    except Exception:
-        await ws.close()
-
 @router.get("")
 async def get_mask():
     """Endpoint to retrieve the current active mask file."""
@@ -32,12 +20,8 @@ async def get_mask():
         raise HTTPException(status_code=404, detail="No active mask file found.")
     return FileResponse(path=ACTIVE_MASK_PATH)
 
-@router.get("/view")
-async def mask_view():
-    """Endpoint to serve the mask view HTML page."""
-    return FileResponse(path="static/maskview.html", media_type="text/html")
 
-@router.post("/upload")
+@router.post("/")
 async def upload_mask(mask: UploadFile = File(...)):
     """Endpoint to upload a new mask file."""
     if mask.content_type not in ["image/png", "image/jpeg"]:
@@ -62,3 +46,23 @@ async def upload_mask(mask: UploadFile = File(...)):
         mask_ch_cond.notify_all()
     
     return JSONResponse(content={"message": "Mask uploaded successfully."})
+
+
+@router.websocket("/changed")
+async def mask_changed(ws: WebSocket):
+    """WebSocket endpoint to notify clients when the mask has been changed."""
+    await ws.accept()
+    try:
+        async with mask_ch_cond:
+            while True:
+                await mask_ch_cond.wait()
+                await ws.send_text("Mask has been changed.")
+    except Exception:
+        await ws.close()
+
+
+@router.get("/view")
+async def mask_view():
+    """Endpoint to serve the mask view HTML page."""
+    return FileResponse(path="static/maskview.html", media_type="text/html")
+

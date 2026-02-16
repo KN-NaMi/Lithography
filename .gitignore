@@ -2,6 +2,7 @@
 *.FCBak
 
 #==Software==
+.ruff_cache
 .masks/
 venv/
 .venv/
