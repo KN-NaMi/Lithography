@@ -13,6 +13,7 @@ os.makedirs(os.path.dirname(ACTIVE_MASK_PATH), exist_ok=True)
 
 mask_ch_cond = asyncio.Condition()
 
+
 @router.get("")
 async def get_mask():
     """Endpoint to retrieve the current active mask file."""
@@ -25,16 +26,22 @@ async def get_mask():
 async def upload_mask(mask: UploadFile = File(...)):
     """Endpoint to upload a new mask file."""
     if mask.content_type not in ["image/png", "image/jpeg"]:
-        return HTTPException(status_code=400, detail="Invalid file type. Only PNG and JPEG are allowed.")
-    
+        return HTTPException(
+            status_code=400, detail="Invalid file type. Only PNG and JPEG are allowed."
+        )
+
     mask.file.seek(0, os.SEEK_END)
     size = mask.file.tell()
-    if size > 64 * 1024 * 1024: # 64 MB limit
-        return HTTPException(status_code=400, detail="File size exceeds the 64 MB limit.")
+    if size > 64 * 1024 * 1024:  # 64 MB limit
+        return HTTPException(
+            status_code=400, detail="File size exceeds the 64 MB limit."
+        )
     mask.file.seek(0)
 
     name, ext = os.path.splitext(mask.filename)
-    file_path = os.path.join(MASKS_DIR, f"{name}_{int(asyncio.get_event_loop().time())}{ext}")
+    file_path = os.path.join(
+        MASKS_DIR, f"{name}_{int(asyncio.get_event_loop().time())}{ext}"
+    )
 
     with open(file_path, "wb") as f:
         shutil.copyfileobj(mask.file, f)
@@ -44,7 +51,7 @@ async def upload_mask(mask: UploadFile = File(...)):
 
     async with mask_ch_cond:
         mask_ch_cond.notify_all()
-    
+
     return JSONResponse(content={"message": "Mask uploaded successfully."})
 
 
@@ -65,4 +72,3 @@ async def mask_changed(ws: WebSocket):
 async def mask_view():
     """Endpoint to serve the mask view HTML page."""
     return FileResponse(path="static/maskview.html", media_type="text/html")
-
