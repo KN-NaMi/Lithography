@@ -29,3 +29,9 @@ def mjpeg_stream():
         yield (
             b"--frame\r\nContent-Type: image/jpeg\r\n\r\n" + buffer.tobytes() + b"\r\n"
         )
+
+def get_current_frame():
+    ret, frame = camera.read()
+    if not ret:
+        raise RuntimeError("Could not read frame from camera.")
+    return frame
