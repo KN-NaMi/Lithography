@@ -9,4 +9,5 @@ dependencies = [
     "python-dotenv>=1.2.1",
     "python-multipart>=0.0.22",
     "uvicorn[standard]>=0.40.0",
+    "pyserial>=3.5",
 ]
